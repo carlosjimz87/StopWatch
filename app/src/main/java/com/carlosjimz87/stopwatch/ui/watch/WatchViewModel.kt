@@ -1,68 +1,30 @@
 package com.carlosjimz87.stopwatch.ui.watch
 
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.carlosjimz87.stopwatch.utils.Constants
-import com.carlosjimz87.stopwatch.utils.Formatter
+import com.carlosjimz87.stopwatch.domain.timer.Timer
+import com.carlosjimz87.stopwatch.domain.timer.Timer.STATES
+import com.carlosjimz87.stopwatch.domain.timer.TimerImpl
+import com.carlosjimz87.stopwatch.utils.Constants.INIT_TIME
 
 class WatchViewModel : ViewModel() {
-    enum class STATES {
-        START,
-        PAUSE,
-        RESUME,
-    }
+    private val timer: Timer by lazy { TimerImpl(_formattedTime) }
 
-    private val mInterval = Constants.TIMER_INTERVAL
-    private var mHandler: Handler? = null
-    private var milliseconds = 0L
 
-    private var _formattedTime = MutableLiveData("")
-    val formattedTime: LiveData<String>
+    private var _formattedTime = MutableLiveData(INIT_TIME)
+    var formattedTime: LiveData<String>
         get() = _formattedTime
+        set(value) { _formattedTime.value = value.value  }
 
     private var _startStopButtonState = MutableLiveData(STATES.START)
-    val startStopButtonState: LiveData<STATES>
+    var startStopButtonState: LiveData<STATES>
         get() = _startStopButtonState
+        set(value) { _startStopButtonState.value = value.value  }
 
+    fun startTimer() = timer.startTimer(_startStopButtonState)
+    fun resetTimer() = timer.resetTimer(_startStopButtonState)
+    fun stopTimer() = timer.stopTimer(_startStopButtonState)
 
-    fun resetTimer() {
-        stopTimer()
-        milliseconds = 0
-        updateStopWatchView(milliseconds)
-        _startStopButtonState.value = STATES.START
-    }
-
-    fun startTimer() {
-        mHandler = Handler(Looper.getMainLooper())
-        mStatusChecker.run()
-        _startStopButtonState.value = STATES.PAUSE
-    }
-
-    fun stopTimer() {
-        mHandler?.removeCallbacks(mStatusChecker)
-        _startStopButtonState.value = STATES.RESUME
-    }
-
-    private var mStatusChecker: Runnable = object : Runnable {
-        override fun run() {
-            try {
-                milliseconds += 1
-                Log.e("Time:", milliseconds.toString())
-                updateStopWatchView(milliseconds)
-            } finally {
-                mHandler!!.postDelayed(this, mInterval)
-            }
-        }
-    }
-
-    private fun updateStopWatchView(millis: Long) {
-        val formattedTime = Formatter.getFormattedStopWatchOld((millis))
-        Log.e("FormattedTime:", formattedTime)
-        _formattedTime.value = formattedTime
-    }
 
 }

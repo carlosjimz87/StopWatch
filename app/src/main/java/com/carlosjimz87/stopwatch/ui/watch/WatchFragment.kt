@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.WatchFragmentBinding
+import com.carlosjimz87.stopwatch.domain.timer.Timer.*
 
 class WatchFragment : Fragment() {
 
@@ -34,9 +35,9 @@ class WatchFragment : Fragment() {
 
         binding.startOrPauseBtn.setOnClickListener {
             when (viewModel.startStopButtonState.value) {
-                WatchViewModel.STATES.RESUME ->  viewModel.startTimer()
-                WatchViewModel.STATES.START -> viewModel.startTimer()
-                WatchViewModel.STATES.PAUSE -> viewModel.stopTimer()
+                STATES.RESUME ->  viewModel.startTimer()
+                STATES.START -> viewModel.startTimer()
+                STATES.PAUSE -> viewModel.stopTimer()
                 else -> {}
             }
         }
@@ -44,9 +45,9 @@ class WatchFragment : Fragment() {
         viewModel.startStopButtonState.observe(viewLifecycleOwner, { state ->
 
             when (state) {
-                WatchViewModel.STATES.START -> changeStartOrPauseBtn(R.string.start,R.color.green)
-                WatchViewModel.STATES.PAUSE -> changeStartOrPauseBtn(R.string.pause,R.color.purple)
-                WatchViewModel.STATES.RESUME -> changeStartOrPauseBtn(R.string.resume,R.color.green)
+                STATES.START -> changeStartOrPauseBtn(R.string.start,R.color.green)
+                STATES.PAUSE -> changeStartOrPauseBtn(R.string.pause,R.color.purple)
+                STATES.RESUME -> changeStartOrPauseBtn(R.string.resume,R.color.green)
                 else -> {}
             }
         })
