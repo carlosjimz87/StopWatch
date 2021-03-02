@@ -30,9 +30,8 @@ In the UI, we will be using **Material Desing** components mostly. For the list 
 - [ ] Make API requests asynchronous.
 - [ ] Create the RecyclerView for records.
 - [ ] Send the record values to the API and notify to UI.
-- [ ] Implement SharedPreferences cache.
-- [ ] Complete test to have good coverage.
-- [ ] Adding persistence.
+- [ ] Implement a cache system using SharedPreferences.
+- [ ] Add more tests to have a good coverage.
 
 ## *Extras*
 
