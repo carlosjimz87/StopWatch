@@ -23,30 +23,30 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/resetButton"
+            android:id="@+id/stopBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/red"
             android:gravity="center"
             android:padding="8dp"
-            android:text="@string/reset"
+            android:text="@string/stop"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/startOrStopTextBtn"
+            app:layout_constraintEnd_toStartOf="@+id/startOrPauseBtn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewStopWatch" />
 
         <Button
-            android:id="@+id/startOrStopTextBtn"
+            android:id="@+id/startOrPauseBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/green"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/start"
@@ -54,7 +54,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/resetButton"
+            app:layout_constraintStart_toEndOf="@+id/stopBtn"
             app:layout_constraintTop_toBottomOf="@+id/textViewStopWatch" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
