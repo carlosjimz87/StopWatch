@@ -1,17 +1,10 @@
-# **Android for SDK**
+# **StopWatch**
 
-*Android app to simulate a stopwatch and send/retrieve date-time logs using the open API [JsonBin](https://jsonbin.io//).*
-
-## Wiremocks
-
-`Splash`, `List` and `Details` view.
+*Android app to simulate a **StopWatch** and that also saves records into an API using [JsonBin](https://jsonbin.io//).*
 
 <p align="center">
-<img src="images/wiremock_splash.jpg" width="32%">
-<img src="images/wiremock_list.jpg" width="32%">
-<img src="images/wiremock_details.jpg" width="32%">
+<img src="images/StopWatch_Wiremocks.jpg" width="100%">
 </p>
-
 
 ## Architecture
 
@@ -28,24 +21,23 @@ In the UI, we will be using **Material Desing** components mostly. For the list 
 ## Tasks
 
 - [X] Define the schema for API endpoints.
-- [ ] Setting main views/navigation/layouts.
-- [ ] Setting main models/controllers/interfaces.
-- [ ] Setup the stopwatch behaviour
-- [ ] Setup API client.
-- [ ] Request the list of characters.
-- [ ] Request character details.
-- [ ] Parsing response and display the list of character with RecyclerView.
-- [ ] Parsing response and display character details.
-- [ ] Adding coroutines to create async requests.
+- [X] Setting basic app structure and resources.
+- [ ] Create the StopWatch logic using ViewModel and Bindings.
+- [ ] Unit tests for stopwatch logic and formatting operations.
+- [ ] Espresso tests for basic components.
+- [ ] Setup API client and basic CRD operations.
+- [ ] Prepare API responses.
+- [ ] Make API requests asynchronous.
+- [ ] Create the RecyclerView for records.
+- [ ] Send the record values to the API and notify to UI.
+- [ ] Implement SharedPreferences cache.
+- [ ] Complete test to have good coverage.
 - [ ] Adding persistence.
-- [ ] Adding tests. **
-
-** Tests will be created upfront using TDD for the **business logic** as much as possible.
 
 ## *Extras*
 
-- [X] Splash screen with **Motion Layout**.
+- [ ] Multiple screen support.
+- [ ] Delete records.
 - [ ] Dependency Injection with **Hilt**.
-- [ ] Animations for fragment transitions and UI components.
-- [ ] Day/Night mode.
-- [ ] Predominant color detector for Details view using **Palette** component
+- [ ] Animations using **Motion Layout**.
+
