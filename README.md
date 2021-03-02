@@ -22,7 +22,7 @@ In the UI, we will be using **Material Desing** components mostly. For the list 
 
 - [X] Define the schema for API endpoints.
 - [X] Setting basic app structure and resources.
-- [ ] Create the StopWatch logic using ViewModel and Bindings.
+- [X] Create the StopWatch logic using ViewModel and Bindings.
 - [ ] Unit tests for stopwatch logic and formatting operations.
 - [ ] Espresso tests for basic components.
 - [ ] Setup API client and basic CRD operations.
