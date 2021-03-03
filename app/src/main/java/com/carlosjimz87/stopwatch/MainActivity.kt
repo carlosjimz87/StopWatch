@@ -3,9 +3,8 @@ package com.carlosjimz87.stopwatch
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.carlosjimz87.stopwatch.databinding.ActivityMainBinding
-import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
-import com.carlosjimz87.stopwatch.ui.watch.WatchFragment
+import com.carlosjimz87.stopwatch.ui.stopwatch.StopWatchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun showWatchFragment(savedInstanceState:Bundle?){
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, WatchFragment.newInstance())
+                .replace(R.id.container, StopWatchFragment.newInstance())
                 .commitNow()
         }
     }

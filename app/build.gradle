@@ -36,6 +36,12 @@ android {
         dataBinding true
         viewBinding true
     }
+    testOptions{
+        unitTests{
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {

@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.ui.watch
+package com.carlosjimz87.stopwatch.ui.stopwatch
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,31 +9,30 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.R
-import com.carlosjimz87.stopwatch.databinding.WatchFragmentBinding
-import com.carlosjimz87.stopwatch.domain.timer.Timer.*
-import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
+import com.carlosjimz87.stopwatch.databinding.StopwatchFragmentBinding
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.*
 
-class WatchFragment : Fragment() {
+class StopWatchFragment : Fragment() {
     companion object {
-        fun newInstance() = WatchFragment()
+        fun newInstance() = StopWatchFragment()
     }
 
-    private lateinit var viewModel: WatchViewModel
-    private lateinit var binding: WatchFragmentBinding
+    private lateinit var viewModel: StopWatchViewModel
+    private lateinit var binding: StopwatchFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.watch_fragment, container, false
+            inflater, R.layout.stopwatch_fragment, container, false
         )
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(WatchViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
 
         binding.stopBtn.setOnClickListener { viewModel.resetTimer() }
 

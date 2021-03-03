@@ -18,7 +18,7 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4ClassRunner::class)
-class WatchFragmentTest{
+class StopWatchFragmentTest{
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)

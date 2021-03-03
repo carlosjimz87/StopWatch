@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.data.api
+package com.carlosjimz87.stopwatch.data.repo
 
 import com.carlosjimz87.stopwatch.data.models.CreateResponse
 import com.carlosjimz87.stopwatch.data.models.DeleteResponse

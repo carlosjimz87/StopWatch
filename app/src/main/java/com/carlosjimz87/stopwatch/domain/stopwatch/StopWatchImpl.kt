@@ -1,15 +1,14 @@
-package com.carlosjimz87.stopwatch.domain.timer
+package com.carlosjimz87.stopwatch.domain.stopwatch
 
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.STATES
 import com.carlosjimz87.stopwatch.utils.Constants
 import com.carlosjimz87.stopwatch.utils.Formatter
-import com.carlosjimz87.stopwatch.domain.timer.Timer.*
 
-class TimerImpl(var formattedTime: MutableLiveData<String>) : Timer {
+class StopWatchImpl(var formattedTime: MutableLiveData<String>) : StopWatch {
 
     private var milliseconds = 0L
     private val mInterval = Constants.TIMER_INTERVAL

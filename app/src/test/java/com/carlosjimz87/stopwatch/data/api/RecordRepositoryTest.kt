@@ -1,10 +1,11 @@
 package com.carlosjimz87.stopwatch.data.api
 
+import com.carlosjimz87.stopwatch.data.repo.RecordRepository
+import com.carlosjimz87.stopwatch.data.repo.RecordRepositoryImpl
 import com.carlosjimz87.stopwatch.domain.data.RecordMapper
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.Constants
 import com.google.gson.GsonBuilder
-import io.mockk.mockk
 import junit.framework.TestCase
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.instanceOf

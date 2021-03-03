@@ -29,7 +29,7 @@ class RecordsFragment: Fragment() {
         fun newInstance() = RecordsFragment()
     }
 
-    private lateinit var viewModel: RecordsViewModel
+    private val viewModel by lazy { ViewModelProvider(this).get(RecordsViewModel::class.java)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,6 @@ class RecordsFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RecordsViewModel::class.java)
     }
     private fun initRecycler(binding: RecordsFragmentBinding) {
         binding.recordsRecyclerView.layoutManager = GridLayoutManager(context,1)

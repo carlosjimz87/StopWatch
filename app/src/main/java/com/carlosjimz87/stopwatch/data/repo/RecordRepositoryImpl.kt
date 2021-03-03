@@ -1,5 +1,6 @@
-package com.carlosjimz87.stopwatch.data.api
+package com.carlosjimz87.stopwatch.data.repo
 
+import com.carlosjimz87.stopwatch.data.api.ApiService
 import com.carlosjimz87.stopwatch.data.models.CreateResponse
 import com.carlosjimz87.stopwatch.data.models.DeleteResponse
 import com.carlosjimz87.stopwatch.domain.data.RecordMapper
@@ -35,10 +36,3 @@ class RecordRepositoryImpl (
 
 
 }
-
-//        CoroutineScope(IO).launch {
-//            val response = service.getRecord(
-//                secret = Constants.API_KEY_VALUE,
-//                recordId = "603e91da81087a6a8b94d67c"
-//            )
-
