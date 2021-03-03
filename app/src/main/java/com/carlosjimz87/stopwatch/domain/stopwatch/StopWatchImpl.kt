@@ -13,19 +13,16 @@ class StopWatchImpl(var formattedTime: MutableLiveData<String>) : StopWatch {
     private var milliseconds = 0L
     private val mInterval = Constants.TIMER_INTERVAL
     private var mHandler: Handler? = null
-    private var status = STATES.START
 
     override fun startTimer(data: MutableLiveData<STATES>) {
         mHandler = Handler(Looper.getMainLooper())
         mStatusChecker.run()
-        status = STATES.PAUSE
         data.value = STATES.PAUSE
     }
 
 
     override fun stopTimer(data: MutableLiveData<STATES>) {
         mHandler?.removeCallbacks(mStatusChecker)
-        status = STATES.RESUME
         data.value = STATES.RESUME
     }
 
@@ -33,7 +30,6 @@ class StopWatchImpl(var formattedTime: MutableLiveData<String>) : StopWatch {
         stopTimer(data)
         milliseconds = 0
         updateStopWatch(milliseconds)
-        status = STATES.START
         data.value = STATES.START
     }
 

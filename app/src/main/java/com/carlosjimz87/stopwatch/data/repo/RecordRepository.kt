@@ -5,8 +5,8 @@ import com.carlosjimz87.stopwatch.data.models.DeleteResponse
 import com.carlosjimz87.stopwatch.domain.models.Record
 
 interface RecordRepository {
-    suspend fun listRecords() : List<Record>
-    suspend fun getRecord(recordId: String) : Record
-    suspend fun createRecord(record: Record) : CreateResponse
-    suspend fun deleteRecord(recordId: String) : DeleteResponse
+    fun listRecords() : List<Record>
+    fun getRecord(recordId: String) : Record
+    fun createRecord(record: Record) : CreateResponse
+    fun deleteRecord(recordId: String) : DeleteResponse
 }

@@ -2,7 +2,7 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "kotlin-kapt"
-    id "kotlin-android-extensions"
+    id "kotlin-parcelize"
 }
 
 android {
@@ -61,17 +61,25 @@ dependencies {
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     // testing
     testImplementation "junit:junit:4.13.2"
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.5.0'
 
+    //moshi
+    implementation "com.squareup.moshi:moshi:1.8.0"
+    implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
+
+    // espresso
     def espresso_version = "3.3.0"
     implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
 
+    //mockk
     def mock_version = "1.10.6"
     testImplementation "io.mockk:mockk:$mock_version"
     androidTestImplementation "io.mockk:mockk-android:$mock_version"
