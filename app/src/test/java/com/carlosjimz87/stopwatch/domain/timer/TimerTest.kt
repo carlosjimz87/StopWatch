@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.domain
+package com.carlosjimz87.stopwatch.domain.timer
 
 import androidx.lifecycle.MutableLiveData
 import com.carlosjimz87.stopwatch.domain.timer.Timer
