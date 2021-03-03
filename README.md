@@ -28,7 +28,7 @@ In the UI, we will be using **Material Desing** components mostly. For the list 
 - [X] Setup API client and basic CRD operations.
 - [/] Prepare API responses.
 - [/] Make API requests asynchronous.
-- [ ] Create the RecyclerView for records.
+- [X] Create the RecyclerView for records.
 - [ ] Send the record values to the API and notify to UI.
 - [ ] Implement a cache system using SharedPreferences.
 - [ ] Add more tests to have a good coverage.
