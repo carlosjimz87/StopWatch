@@ -11,8 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.WatchFragmentBinding
 import com.carlosjimz87.stopwatch.domain.timer.Timer.*
+import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
 
 class WatchFragment : Fragment() {
+    companion object {
+        fun newInstance() = WatchFragment()
+    }
 
     private lateinit var viewModel: WatchViewModel
     private lateinit var binding: WatchFragmentBinding

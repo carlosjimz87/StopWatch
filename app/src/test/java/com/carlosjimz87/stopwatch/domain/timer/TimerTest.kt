@@ -1,13 +1,6 @@
 package com.carlosjimz87.stopwatch.domain.timer
 
-import androidx.lifecycle.MutableLiveData
-import com.carlosjimz87.stopwatch.domain.timer.Timer
-import com.carlosjimz87.stopwatch.domain.timer.TimerImpl
 import com.carlosjimz87.stopwatch.ui.watch.WatchViewModel
-import io.mockk.every
-import io.mockk.mockk
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
 
