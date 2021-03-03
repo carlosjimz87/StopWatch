@@ -50,6 +50,7 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 
 ## *Extras*
 
+- [ ] Filter the list of records for the current day only.
 - [ ] Multiple screen support.
 - [ ] Delete records.
 - [ ] Apply dependency injection.
