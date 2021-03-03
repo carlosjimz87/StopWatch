@@ -23,11 +23,11 @@ In the UI, we will be using **Material Desing** components mostly. For the list 
 - [X] Define the schema for API endpoints.
 - [X] Setting basic app structure and resources.
 - [X] Create the StopWatch logic using ViewModel and Bindings.
-- [ ] Unit tests for stopwatch logic and formatting operations.
-- [ ] Espresso tests for basic components.
-- [ ] Setup API client and basic CRD operations.
-- [ ] Prepare API responses.
-- [ ] Make API requests asynchronous.
+- [/] Unit tests for stopwatch logic and formatting operations.
+- [/] Espresso tests for basic components.
+- [X] Setup API client and basic CRD operations.
+- [/] Prepare API responses.
+- [/] Make API requests asynchronous.
 - [ ] Create the RecyclerView for records.
 - [ ] Send the record values to the API and notify to UI.
 - [ ] Implement a cache system using SharedPreferences.
