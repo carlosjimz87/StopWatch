@@ -17,15 +17,17 @@
 
 ## Architecture
 
-We will be using the **Architecture Components** approach of the [Android Jetpack](https://developer.android.com/jetpack/) libraries. This means extensive use of the **MVVM** pattern and **reactive programming**. The controller interfaces will be implemented in `ViewModel` classes, views will be represented for their respective `Fragments` and models will be wrapped inside `LiveData` objects. LiveData and ViewModels classes are **lifecycle-aware** and they allow the use of **Observer** pattern to handle the app state.  As a plus, these LiveData objects are **thread-safe** and we can exploit this capacity to create **asynchronous requests** to the API to improve performance. With this architecture, our code gains clearness and separation of concerns (with the help of `dependency inversion`) so this facilitates the usage of **TDD**. If possible, we will try to apply `dependency injection` using **Hilt** to improve the quality of code and tests.
+We will be using the **Architecture Components** approach of the [Android Jetpack](https://developer.android.com/jetpack/) libraries. This means extensive use of the **MVVM** pattern and **reactive programming**. The controller interfaces will be implemented in `ViewModel` classes, views will be represented for their respective `Fragments` and models will be wrapped inside `LiveData` objects. LiveData and ViewModels classes are **lifecycle-aware** and they allow the use of **Observer** pattern to handle the app state.  As a plus, these LiveData objects are **thread-safe** and we can exploit this capacity to create **asynchronous requests** to the API to improve performance. 
+
+With this architecture, our code gains clearness and separation of concerns (with the help of `dependency inversion`) so this facilitates the usage of **TDD**. If possible, we will try to apply `dependency injection` using **Hilt** to improve the quality of code and tests.
 
 In order to maintain the app smooth and because the timer counters is a CPU-bound task, we need to use **parallelism** in our solution. To achieve that, we will implement a **kotlin-coroutines** approach. 
 
-For the `API` requests we will use the **Retrofit** library and for data `persistence`, we are going to use **Shared Preferences** due to its simplicity and as part of a `cache` strategy. The corresponding ViewModel will retrieve the records from the appropriate source(API or cache) in every case, through a `repository` pattern. 
+For the `API` requests we will use the **Retrofit** library and for `data persistence`, we are going to use **Shared Preferences** due to its simplicity and as part of a `cache` strategy. The corresponding ViewModel will retrieve the records from the appropriate source(API or cache) in every case, through a `repository` pattern. 
 
-To get an effective decoupling of the views, the **Data Binding** and **View Binding** libraries will be helpful. Therefore, the views will be `single responsibility` compliance and lightweight in the resources usage.
+To get a nice decoupling of modules, besides the project structure, it will be helpful to use **Data Binding** and **View Binding**. This way, the views are more lightweight and `single responsibility` compliant.
 
-In the UI, we will be using **Material Desing** components mostly. For the list of logs, we select the RecyclerView as is more effective than ListView or similars. Finally, we will try to create `animations` that provide a better UI/UX by using **Motion Layouts**.
+In the UI we will be using **Material Design**, and for the list of records, we select a `RecyclerView` and `CardView` components. Finally, we will try to create `animations` to provide a better UI/UX by using **Motion Layouts**.
 
 Unit testing will be made in `junit4` and instrumented testing in `Espresso`, the mocking will use `mockk` library.
 
