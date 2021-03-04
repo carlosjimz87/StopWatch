@@ -36,8 +36,8 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Define the schema for API endpoints.
 - [X] Setting basic app structure and resources.
 - [X] Create the StopWatch logic using ViewModel and Bindings.
-- [/] Basic unit tests for business logic.
-- [/] Basic Espresso tests for basic components.
+- [X] Basic Unit Tests for business logic. *
+- [X] Basic Espresso Tests. *
 - [X] Setup API client and basic CRD operations.
 - [X] Make asynchronous requests to the API.
 - [X] Prepare API responses.
@@ -48,9 +48,11 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [ ] Add more tests to have good coverage.
 - [ ] Validate correct functioning of all requirements in the app.
 
+* Some tests need to be improved.
 
 ## *Extras*
 
+- [X] CI with Github Actions.
 - [ ] Filter the list of records for the current day only.
 - [ ] Multiple screen support.
 - [ ] Delete records.
