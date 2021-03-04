@@ -20,7 +20,16 @@ object SharedPrefsManager {
         val editor = prefs.edit()
         val gson = Gson()
         val jsonRecords = gson.toJson(records)
+
+        editor.clear()
         editor.putString(SHARED_PREFS_KEY,jsonRecords)
+        editor.apply()
+    }
+
+    suspend fun clearRecords(context: Context){
+        val prefs = context.getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.clear()
         editor.apply()
     }
 }

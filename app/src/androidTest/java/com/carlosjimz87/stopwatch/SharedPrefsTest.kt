@@ -32,45 +32,71 @@ class SharedPrefsTest {
     }
 
     @Test
-    fun testEmptyRecords() = runBlocking { // that will allow to wait for coroutine
+    fun testGetEmptyRecord() = runBlocking { // that will allow to wait for coroutine
+        //clear preferences
+        clearSharedPrefs()
 
         val record = fakeDatabase.getRecord(SDBR.records[0].id)
         val emptyRecord = Record(
             "","",""
         )
-        assertEquals(record,emptyRecord)
+        assertEquals(emptyRecord,record)
+    }
+    @Test
+    fun testDeleteNullRecord() = runBlocking { // that will allow to wait for coroutine
+        //clear preferences
+        clearSharedPrefs()
+
+        val result = fakeDatabase.deleteRecord(SDBR.newRecord.id)
+        assertEquals(false,result)
     }
 
+    @Test
+    fun testCreateTwice() = runBlocking { // that will allow to wait for coroutine
+        //clear preferences
+        clearSharedPrefs()
+
+        var result = fakeDatabase.createRecord(SDBR.newRecord)
+        assertEquals(true,result)
+
+        result = fakeDatabase.createRecord(SDBR.newRecord)
+        assertEquals(false,result)
+    }
 
     @Test
     fun testListCreateDeleteRecords() = runBlocking { // that will allow to wait for coroutine
+        //clear preferences
+        clearSharedPrefs()
 
         // Check first if 0 records
         var records = fakeDatabase.listRecords()
-        assertEquals(records.size,0)
+        assertEquals(0,records.size)
 
         // Create 4 records
         var result = false
         SDBR.records.forEach {
             result = fakeDatabase.createRecord(it)
-            assertEquals(result, true)
+            assertEquals( true,result)
         }
 
         // Check now if 4 records
         records = fakeDatabase.listRecords()
-        assertEquals(records.size,4)
+        assertEquals(4,records.size)
 
         // Delete 4 records
         result = false
         SDBR.records.forEach {
             result = fakeDatabase.deleteRecord(it.id)
-            assertEquals(result, true)
+            assertEquals(true,result)
         }
 
         // Check if 0 records again
         records = fakeDatabase.listRecords()
-        assertEquals(records.size,0)
+        assertEquals(0,records.size)
 
     }
 
+    private fun clearSharedPrefs()= runBlocking {
+        (fakeDatabase as Database).clearRecords()
+    }
 }

@@ -36,11 +36,16 @@ class Database : Api {
         return try {
 
             val records = SharedPrefsManager.getRecords(context)
-            val newRecords = records.filter {
+            val newRecords = records.filterNot {
                 it.id == recordId
             }
-            SharedPrefsManager.setRecords(context, newRecords)
-            true
+            if(newRecords.size != records.size){
+                SharedPrefsManager.setRecords(context, newRecords)
+                true
+            }
+            else
+                false
+
         } catch (e: Exception) {
             false
         }
@@ -48,9 +53,13 @@ class Database : Api {
 
     override suspend fun createRecord(record: Record): Boolean {
         return try {
-
             val records = SharedPrefsManager.getRecords(context).toMutableList()
-            records.add(record)
+
+            // check if not exists first
+            if(!records.contains(record))
+                records.add(record)
+            else{ return false }
+
             SharedPrefsManager.setRecords(context, records.toList())
             true
         } catch (e: Exception) {
@@ -58,6 +67,14 @@ class Database : Api {
         }
     }
 
+    suspend fun clearRecords(): Boolean{
+        return try {
+            SharedPrefsManager.clearRecords(context)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
 
 }
 
