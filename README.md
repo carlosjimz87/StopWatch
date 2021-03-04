@@ -42,10 +42,11 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Make asynchronous requests to the API.
 - [X] Prepare API responses.
 - [X] Create the RecyclerView for records.
-- [ ] Create the records flow using a Repository pattern.
+- [X] Implement a cache system using SharedPreferences.
+- [X] Create the records flow using a Repository pattern.
 - [ ] Send the record values to the API and notify UI.
-- [ ] Implement a cache system using SharedPreferences.
 - [ ] Add more tests to have good coverage.
+- [ ] Validate correct functioning of all requirements in the app.
 
 
 ## *Extras*
