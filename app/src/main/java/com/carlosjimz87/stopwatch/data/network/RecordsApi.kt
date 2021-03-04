@@ -1,7 +1,6 @@
 package com.carlosjimz87.stopwatch.data.network
 
 import com.carlosjimz87.stopwatch.data.base.Api
-import com.carlosjimz87.stopwatch.data.db.FakeDatabase
 import com.carlosjimz87.stopwatch.data.models.RecordResponse
 import com.carlosjimz87.stopwatch.domain.data.RecordMapper
 import com.carlosjimz87.stopwatch.domain.models.Record
@@ -27,9 +26,13 @@ class NetworkApi : Api {
         val recordResponse: RecordResponse = RetrofitApi.service.getRecord(recordId,
             Constants.API_KEY_VALUE)
 
-        record = RecordMapper.mapFromResponse(recordResponse)
+        record = RecordMapper.mapFromResponse(recordResponse,recordId)
 
-        return record
+        return Record(
+            id=recordId,
+            datetime = record.datetime,
+            time = record.time
+        )
     }
 
     override suspend fun deleteRecord(recordId: String): Boolean {

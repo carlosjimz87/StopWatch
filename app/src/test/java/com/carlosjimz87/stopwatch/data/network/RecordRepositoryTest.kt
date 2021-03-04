@@ -18,7 +18,7 @@ class RecordRepositoryTest : TestCase() {
 
     }
     @After
-    override fun tearDown() {
+    fun teardown() {
     }
 
     @Test

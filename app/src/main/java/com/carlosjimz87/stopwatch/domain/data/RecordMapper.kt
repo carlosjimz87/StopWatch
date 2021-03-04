@@ -4,10 +4,11 @@ import com.carlosjimz87.stopwatch.data.models.RecordResponse
 import com.carlosjimz87.stopwatch.domain.models.Record
 
 object RecordMapper: EntityMapper<RecordResponse,Record> {
-    override fun mapFromResponse(entity: RecordResponse): Record {
+    override fun mapFromResponse(entity: RecordResponse, id:String?): Record {
         return Record(
-            entity.datetime,
-            entity.time
+            id= id!!,
+            datetime = entity.datetime,
+            time = entity.time
         )
     }
 

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.StopwatchFragmentBinding
 import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.*
+import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 
 class StopWatchFragment : Fragment() {
     companion object {

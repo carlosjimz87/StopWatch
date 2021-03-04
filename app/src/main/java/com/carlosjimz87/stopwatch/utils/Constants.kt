@@ -8,4 +8,5 @@ object Constants {
     const val API_KEY_NAME = "secret-key"
     const val API_KEY_VALUE = "\$2b\$10\$UNPcepb6oCqEQnZWxZGtUudrOvtK.GMAq90iTlnr0KtKc7fE54w4u"
     const val COLLECTION_ID = "603cbedb81087a6a8b93478b"
+    const val SHARED_PREFS_KEY = "RECORDS"
 }

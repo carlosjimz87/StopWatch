@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.ui.stopwatch
+package com.carlosjimz87.stopwatch.domain.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

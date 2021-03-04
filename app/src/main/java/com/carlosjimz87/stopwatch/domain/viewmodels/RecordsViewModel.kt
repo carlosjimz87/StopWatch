@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.ui.records
+package com.carlosjimz87.stopwatch.domain.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,11 +8,11 @@ import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.ManagedCoroutineScope
 import kotlinx.coroutines.*
 
-enum class RecordsApiStatus { LOADING, ERROR, DONE }
 
 class RecordsViewModel(
     private val coroutineScope : ManagedCoroutineScope
 ) : ViewModel() {
+    enum class RecordsApiStatus { LOADING, ERROR, DONE }
 
     private val recordsRepository = RecordsRepository()
 

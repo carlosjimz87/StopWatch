@@ -12,6 +12,7 @@ import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -80,7 +81,7 @@ class RecordsApiTest {
         )
         val record = apiService.getRecord(SAR.idForRecord, API_KEY_VALUE)
 
-        MatcherAssert.assertThat(record, CoreMatchers.instanceOf(RecordResponse::class.java))
+        assertThat(record, CoreMatchers.instanceOf(RecordResponse::class.java))
         assertEquals(record.datetime, SAR.record.datetime)
         assertEquals(record.time, SAR.record.time)
     }
