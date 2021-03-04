@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.carlosjimz87.stopwatch.ui.watch.WatchViewModel" />
+            type="com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,30 +1,43 @@
 package com.carlosjimz87.stopwatch
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.carlosjimz87.stopwatch.databinding.ActivityMainBinding
-import com.carlosjimz87.stopwatch.ui.watch.WatchFragment
+import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
+import com.carlosjimz87.stopwatch.ui.stopwatch.StopWatchFragment
 
 class MainActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         hideToolbar()
-        beginTransition(savedInstanceState)
+        showWatchFragment(savedInstanceState)
+        showRecordsFragment(savedInstanceState)
+
     }
+
 
     private fun hideToolbar(){
         supportActionBar?.hide();
     }
 
-    private fun beginTransition(savedInstanceState:Bundle?){
+    private fun showWatchFragment(savedInstanceState:Bundle?){
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, WatchFragment())
+                .replace(R.id.container, StopWatchFragment.newInstance())
                 .commitNow()
         }
     }
+    private fun showRecordsFragment(savedInstanceState:Bundle?){
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container2, RecordsFragment.newInstance())
+                .commitNow()
+        }
+    }
+
 }

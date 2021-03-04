@@ -1,15 +1,16 @@
-package com.carlosjimz87.stopwatch.ui.watch
+package com.carlosjimz87.stopwatch.domain.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.carlosjimz87.stopwatch.domain.timer.Timer
-import com.carlosjimz87.stopwatch.domain.timer.Timer.STATES
-import com.carlosjimz87.stopwatch.domain.timer.TimerImpl
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.STATES
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatchImpl
 import com.carlosjimz87.stopwatch.utils.Constants.INIT_TIME
 
-class WatchViewModel : ViewModel() {
-    private val timer: Timer by lazy { TimerImpl(_formattedTime) }
+class StopWatchViewModel : ViewModel() {
+    private val stopWatch: StopWatch by lazy { StopWatchImpl(_formattedTime) }
+
 
 
     private var _formattedTime = MutableLiveData(INIT_TIME)
@@ -22,9 +23,9 @@ class WatchViewModel : ViewModel() {
         get() = _startStopButtonState
         set(value) { _startStopButtonState.value = value.value  }
 
-    fun startTimer() = timer.startTimer(_startStopButtonState)
-    fun resetTimer() = timer.resetTimer(_startStopButtonState)
-    fun stopTimer() = timer.stopTimer(_startStopButtonState)
+    fun startTimer() = stopWatch.startTimer(_startStopButtonState)
+    fun resetTimer() = stopWatch.resetTimer(_startStopButtonState)
+    fun stopTimer() = stopWatch.stopTimer(_startStopButtonState)
 
 
 }

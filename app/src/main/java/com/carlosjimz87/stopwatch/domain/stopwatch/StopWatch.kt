@@ -1,8 +1,8 @@
-package com.carlosjimz87.stopwatch.domain.timer
+package com.carlosjimz87.stopwatch.domain.stopwatch
 
 import androidx.lifecycle.MutableLiveData
 
-interface Timer {
+interface StopWatch {
 
     enum class STATES {
         START,

@@ -18,4 +18,8 @@ object Formatter {
 
     }
 
+    fun formatRecordDate(input:String): String{
+        val lastChars = input.length - input.indexOf('.')
+        return input.dropLast(lastChars).replace('T',' ')
+    }
 }
