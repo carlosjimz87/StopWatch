@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.data.api
+package com.carlosjimz87.stopwatch.data.network
 
 import com.carlosjimz87.stopwatch.data.models.RecordResponse
 import com.carlosjimz87.stopwatch.utils.Constants.API_KEY_VALUE
@@ -28,7 +28,7 @@ import java.net.HttpURLConnection
 class RecordsApiTest {
     private var mockWebServer = MockWebServer()
 
-    private lateinit var apiService: RecordsApiService
+    private lateinit var apiService: RetrofitService
 
     @Before
     fun setUp() {
@@ -43,7 +43,7 @@ class RecordsApiTest {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(mockWebServer.url("/")) // note the URL is different from production one
             .build()
-            .create(RecordsApiService::class.java)
+            .create(RetrofitService::class.java)
     }
 
     @After

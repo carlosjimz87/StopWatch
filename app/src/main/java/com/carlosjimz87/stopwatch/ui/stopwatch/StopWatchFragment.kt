@@ -27,11 +27,7 @@ class StopWatchFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.stopwatch_fragment, container, false
         )
-        return binding.root
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
 
         binding.stopBtn.setOnClickListener { viewModel.resetTimer() }
@@ -58,7 +54,7 @@ class StopWatchFragment : Fragment() {
         viewModel.formattedTime.observe(viewLifecycleOwner, { time ->
             binding.textViewStopWatch.text = time
         })
-
+        return binding.root
     }
 
     private fun changeStartOrPauseBtn(text:Int,color:Int) {

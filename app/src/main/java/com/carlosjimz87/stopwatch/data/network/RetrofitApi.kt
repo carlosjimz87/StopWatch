@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.data.api
+package com.carlosjimz87.stopwatch.data.network
 
 import com.carlosjimz87.stopwatch.data.models.CreateResponse
 import com.carlosjimz87.stopwatch.data.models.DeleteResponse
@@ -7,18 +7,16 @@ import com.carlosjimz87.stopwatch.data.models.RecordResponse
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.Constants
 import com.google.gson.GsonBuilder
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 private val retrofit= Retrofit.Builder()
-    .baseUrl(Constants.FAKE_API_BASE_URL)
+    .baseUrl(Constants.POSTMAN_API_BASE_URL)
     .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
     .build()
 
-interface RecordsApiService {
+interface RetrofitService {
 
     @GET(value = "/e/collection/{collectionId}/all-bins")
     suspend fun listRecords(
@@ -46,16 +44,10 @@ interface RecordsApiService {
 
 }
 
+object RetrofitApi {
 
-/*
-To avoid excessive use of resources
-we create a Singleton to call the Api
-using this JsonBinApi
-*/
-object RecordsApi {
-
-    val retrofitService: RecordsApiService by lazy {
-        retrofit.create(RecordsApiService::class.java)
+    val service: RetrofitService by lazy {
+        retrofit.create(RetrofitService::class.java)
     }
 
 }

@@ -12,6 +12,7 @@ class StopWatchViewModel : ViewModel() {
     private val stopWatch: StopWatch by lazy { StopWatchImpl(_formattedTime) }
 
 
+
     private var _formattedTime = MutableLiveData(INIT_TIME)
     var formattedTime: LiveData<String>
         get() = _formattedTime
