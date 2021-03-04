@@ -46,21 +46,21 @@ class StopWatchFragmentTest{
     }
 
 
-    @Test
-    fun test_isTimerStartsWhenStartBtnPressed(): Unit = runBlocking{
+//    @Test
+//    fun test_isTimerStartsWhenStartBtnPressed(): Unit = runBlocking{
 
-        onView(withId(R.id.textViewStopWatch))
-            .check(matches(withText(R.string.init_stop_watch_value)))
+//        onView(withId(R.id.textViewStopWatch))
+//            .check(matches(withText(R.string.init_stop_watch_value)))
+//
+//        onView(withId(R.id.startOrPauseBtn))
+//            .perform(click())
+//
+//        onView(withId(R.id.startOrPauseBtn))
+//            .perform(click())
+//
+//        onView(withId(R.id.textViewStopWatch))
+//            .check(matches(not(withText(R.string.init_stop_watch_value))))
 
-        onView(withId(R.id.startOrPauseBtn))
-            .perform(click())
-
-        onView(withId(R.id.startOrPauseBtn))
-            .perform(click())
-
-        onView(withId(R.id.textViewStopWatch))
-            .check(matches(not(withText(R.string.init_stop_watch_value))))
-
-    }
+//    }
 }
 
