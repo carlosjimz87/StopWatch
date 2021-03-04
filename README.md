@@ -51,6 +51,7 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 
 ## *Extras*
 
+- [X] CI with Github Actions.
 - [ ] Filter the list of records for the current day only.
 - [ ] Multiple screen support.
 - [ ] Delete records.
