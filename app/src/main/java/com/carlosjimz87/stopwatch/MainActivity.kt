@@ -2,15 +2,20 @@ package com.carlosjimz87.stopwatch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.databinding.ActivityMainBinding
+import com.carlosjimz87.stopwatch.domain.viewmodels.RecordsViewModel
+import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
 import com.carlosjimz87.stopwatch.ui.stopwatch.StopWatchFragment
+import com.carlosjimz87.stopwatch.utils.Extensions.isEmpty
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var recordsViewModel: RecordsViewModel
+    lateinit var stopWatchViewModel: StopWatchViewModel
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,15 +24,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         hideToolbar()
+        // obtaining recordsViewModel from Provider
+        recordsViewModel = ViewModelProvider(this).get(RecordsViewModel::class.java)
+        // obtaining stopWatchViewModel from Provider
+        stopWatchViewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
+
+
+        stopWatchViewModel.saveRecord.observe(this, { newRecord ->
+            if(!newRecord.isEmpty())
+                recordsViewModel.addRecord(newRecord)
+        })
+
 
         showWatchFragment(savedInstanceState)
         showRecordsFragment(savedInstanceState)
+
 
     }
 
 
     private fun hideToolbar(){
-        supportActionBar?.hide();
+        supportActionBar?.hide()
     }
 
     private fun showWatchFragment(savedInstanceState:Bundle?){

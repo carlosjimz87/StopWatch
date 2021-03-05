@@ -2,6 +2,7 @@ package com.carlosjimz87.stopwatch.domain.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,11 @@ import com.carlosjimz87.stopwatch.databinding.RecordItemBinding
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.Extensions.formatRecordDate
 
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<Record>?) {
+    val adapter = recyclerView.adapter as RecordsAdapter
+    adapter.submitList(data)
+}
 
 class RecordsAdapter :
     ListAdapter<Record, RecordsAdapter.RecordsViewHolder>(DiffCallback) {

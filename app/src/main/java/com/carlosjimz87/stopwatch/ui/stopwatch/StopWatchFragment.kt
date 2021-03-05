@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.carlosjimz87.stopwatch.MainActivity
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.StopwatchFragmentBinding
 import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
@@ -24,8 +25,8 @@ class StopWatchFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.stopwatch_fragment, container, false
         )
-        // obtaining stopWatchViewModel from Provider
-        stopWatchViewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
+
+        stopWatchViewModel = (activity as MainActivity).stopWatchViewModel
 
         // Allows Data Binding to Observe LiveData
         binding.lifecycleOwner = this
@@ -50,6 +51,7 @@ class StopWatchFragment : Fragment() {
             }
         })
 
+
     }
 
     private fun changeStartOrPauseBtn(text: Int, color: Int) {
@@ -58,6 +60,6 @@ class StopWatchFragment : Fragment() {
     }
 
     private fun getColor(resource: Int): Int {
-        return ContextCompat.getColor(context!!, resource)
+        return ContextCompat.getColor(requireContext(), resource)
     }
 }

@@ -1,5 +1,7 @@
 package com.carlosjimz87.stopwatch.data.repo
 
+import android.content.Context
+import com.carlosjimz87.stopwatch.data.db.Database
 import com.carlosjimz87.stopwatch.data.db.RecordsCache
 import com.carlosjimz87.stopwatch.data.network.RecordsApi
 import com.carlosjimz87.stopwatch.domain.models.Record
@@ -9,6 +11,10 @@ object RecordsRepository {
     enum class SOURCE{
         DB,
         NETWORK
+    }
+
+    fun init(context: Context) {
+        (RecordsCache.service as Database).init(context)
     }
 
     var source:SOURCE=SOURCE.DB

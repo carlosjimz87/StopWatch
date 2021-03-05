@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.data.network
+package com.carlosjimz87.stopwatch.data.network.db
 
 import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
