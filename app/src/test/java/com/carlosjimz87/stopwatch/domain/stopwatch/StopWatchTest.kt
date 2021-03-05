@@ -26,7 +26,7 @@ class StopWatchTest {
     }
 
     @Test
-    fun test_timer_started() {
+    fun test_timer_is_pending() {
         // SET
 //        every{
 //            stopWatch.startTimer(state)

@@ -44,20 +44,22 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Create the RecyclerView for records.
 - [X] Implement a cache system using SharedPreferences.
 - [X] Create the records flow using a Repository pattern.
-- [ ] Send the record values to the API and notify UI.
-- [ ] Add more tests to have good coverage.
-- [ ] Validate correct functioning of all requirements in the app.
+- [X] Send the record values to the API and notify UI.
+- [X] Handle exceptions.
+- [ ] Delete records with onLongPressed event.
+- [X] Validate correct functioning of all requirements in the app.
 
 * Some tests need to be improved.
 
 ## *Extras*
 
 - [X] CI with Github Actions.
-- [ ] Filter the list of records for the current day only.
+- [ ] Show errors and states in UI.
 - [ ] Multiple screen support.
-- [ ] Delete records.
-- [ ] Apply dependency injection.
 - [ ] Animations.
+- [ ] Apply dependency injection.
+- [ ] Improve the test harness for a good coverage.
+- [ ] Synchronize records between Cache with API.
 
 ## API Schema
 

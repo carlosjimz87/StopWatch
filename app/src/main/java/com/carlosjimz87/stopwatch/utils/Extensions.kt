@@ -1,6 +1,7 @@
 package com.carlosjimz87.stopwatch.utils
 
 import com.carlosjimz87.stopwatch.domain.models.Record
+import com.carlosjimz87.stopwatch.utils.Constants.INIT_TIME
 import java.util.concurrent.TimeUnit
 
 object Extensions {
@@ -27,5 +28,10 @@ object Extensions {
         return  (this.id.isEmpty()) &&
                 (this.time.isEmpty()) &&
                 (this.datetime.isEmpty())
+    }
+
+    fun String.isTimeEmpty():Boolean{
+        return  (this.isEmpty()) ||
+                (this==INIT_TIME)
     }
 }

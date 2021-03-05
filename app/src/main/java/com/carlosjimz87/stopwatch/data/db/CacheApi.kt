@@ -12,6 +12,7 @@ class Database : Api {
         this.context = context
     }
 
+    @Throws(Exception::class)
     override suspend fun listRecords(): List<Record> {
         return try {
             SharedPrefsManager.getRecords(context)
@@ -20,6 +21,7 @@ class Database : Api {
         }
     }
 
+    @Throws(Exception::class)
     override suspend fun getRecord(recordId: String): Record {
         val records = SharedPrefsManager.getRecords(context)
         return try {
@@ -32,6 +34,7 @@ class Database : Api {
 
     }
 
+    @Throws(Exception::class)
     override suspend fun deleteRecord(recordId: String): Boolean {
         return try {
 
@@ -51,8 +54,9 @@ class Database : Api {
         }
     }
 
+    @Throws(Exception::class)
     override suspend fun createRecord(record: Record): Boolean {
-        return try {
+
             val records = SharedPrefsManager.getRecords(context).toMutableList()
 
             // check if not exists first
@@ -61,12 +65,10 @@ class Database : Api {
             else{ return false }
 
             SharedPrefsManager.setRecords(context, records.toList())
-            true
-        } catch (e: Exception) {
-            false
-        }
+        return true
     }
 
+    @Throws(Exception::class)
     suspend fun clearRecords(): Boolean{
         return try {
             SharedPrefsManager.clearRecords(context)
@@ -78,7 +80,7 @@ class Database : Api {
 
 }
 
-object RecordsCache {
+object CacheApi {
 
     val service: Api by lazy {
         Database()

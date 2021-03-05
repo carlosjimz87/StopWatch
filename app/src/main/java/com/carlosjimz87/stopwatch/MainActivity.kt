@@ -9,6 +9,7 @@ import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 import com.carlosjimz87.stopwatch.ui.records.RecordsFragment
 import com.carlosjimz87.stopwatch.ui.stopwatch.StopWatchFragment
 import com.carlosjimz87.stopwatch.utils.Extensions.isEmpty
+import com.carlosjimz87.stopwatch.utils.Extensions.isTimeEmpty
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
 
         stopWatchViewModel.saveRecord.observe(this, { newRecord ->
-            if(!newRecord.isEmpty())
+            if(!newRecord.isEmpty() && !stopWatchViewModel.formattedTime.value?.isTimeEmpty()!!)
                 recordsViewModel.addRecord(newRecord)
         })
 
