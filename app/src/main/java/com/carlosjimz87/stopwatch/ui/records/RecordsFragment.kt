@@ -7,38 +7,46 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.RecordsFragmentBinding
-import com.carlosjimz87.stopwatch.domain.models.Record
+import com.carlosjimz87.stopwatch.domain.adapters.RecordsAdapter
 import com.carlosjimz87.stopwatch.domain.viewmodels.RecordsViewModel
 
 class RecordsFragment: Fragment() {
 
-
-    private var dummyRecords: List<Record> = listOf(
-    )
-
-
-    companion object {
-        fun newInstance() = RecordsFragment()
-    }
-
-    private val viewModel by lazy { ViewModelProvider(this).get(RecordsViewModel::class.java)}
+    private lateinit var recordsViewModel: RecordsViewModel
+    private lateinit var binding: RecordsFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: RecordsFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.records_fragment, container, false)
-        initRecycler(binding)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.records_fragment, container, false
+        )
+        // obtaining recordsViewModel from Provider
+        recordsViewModel = ViewModelProvider(this).get(RecordsViewModel::class.java)
+
+        // Allows Data Binding to Observe LiveData
+        binding.lifecycleOwner = this
+        // Giving the binding access to the RecordsViewModel
+        binding.recordsViewModel = recordsViewModel
+
+        setupRecyclerView(binding)
+
         return binding.root
     }
 
-    private fun initRecycler(binding: RecordsFragmentBinding) {
-        binding.recordsRecyclerView.layoutManager = GridLayoutManager(context,1)
-        binding.recordsRecyclerView.adapter = RecordsAdapter(dummyRecords)
+    override fun onResume() {
+        super.onResume()
+     //   recordsViewModel.updateRecords()
+    }
 
+    private fun setupRecyclerView(binding: RecordsFragmentBinding) {
+
+        binding.recordsRecyclerView.adapter = RecordsAdapter()
+
+//        binding.recordsRecyclerView.layoutManager = LinearLayoutManager(context)
+//        binding.recordsRecyclerView.adapter = RecordsAdapter(dummyRecords)
     }
 }

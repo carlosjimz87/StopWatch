@@ -3,18 +3,15 @@ package com.carlosjimz87.stopwatch.domain.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.carlosjimz87.stopwatch.data.repo.RecordsRepository
 import com.carlosjimz87.stopwatch.domain.models.Record
-import com.carlosjimz87.stopwatch.utils.ManagedCoroutineScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 
-class RecordsViewModel(
-    private val coroutineScope : ManagedCoroutineScope
-) : ViewModel() {
+class RecordsViewModel : ViewModel() {
     enum class RecordsApiStatus { LOADING, ERROR, DONE }
-
-    private val recordsRepository = RecordsRepository()
 
     private val _status = MutableLiveData<RecordsApiStatus>()
     val status: LiveData<RecordsApiStatus>
@@ -25,18 +22,48 @@ class RecordsViewModel(
         get() = _records
 
 
-    fun listRecords(source: RecordsRepository.SOURCE) = coroutineScope.launch{
+    fun updateRecords() = viewModelScope.launch{
         _status.value = RecordsApiStatus.LOADING
-        _records.value = recordsRepository.listRecords(source)
+
+        _records.value = RecordsRepository.listRecords()
+
         _status.value = RecordsApiStatus.DONE
     }
 
+
+    fun addRecord(time:String) = viewModelScope.launch{
+        _status.value = RecordsApiStatus.LOADING
+
+        val newRecord = Record(
+            id="",
+            datetime = "2100-12-31T23:59:59.001+0000",
+            time = "00:00:00.001"
+        )
+        RecordsRepository.createRecord(newRecord)
+        _records.value = RecordsRepository.listRecords()
+
+        _status.value = RecordsApiStatus.DONE
+
+    }
+
+    fun deleteRecord(recordId: String) = viewModelScope.launch{
+        _status.value = RecordsApiStatus.LOADING
+
+        RecordsRepository.deleteRecord(recordId)
+        _records.value = RecordsRepository.listRecords()
+
+        _status.value = RecordsApiStatus.DONE
+
+    }
+
     init {
-        listRecords(RecordsRepository.SOURCE.NETWORK)
+        updateRecords()
     }
 
     override fun onCleared() {
         super.onCleared()
-        coroutineScope.cancel()
+        viewModelScope.cancel()
     }
+
 }
+

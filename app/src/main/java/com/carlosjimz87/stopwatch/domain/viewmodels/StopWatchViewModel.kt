@@ -4,28 +4,43 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch
-import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.STATES
-import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatchImpl
+import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatchController
 import com.carlosjimz87.stopwatch.utils.Constants.INIT_TIME
 
 class StopWatchViewModel : ViewModel() {
-    private val stopWatch: StopWatch by lazy { StopWatchImpl(_formattedTime) }
 
 
+    enum class STATES {
+        START,
+        PAUSE,
+        RESUME,
+    }
+
+    private val stopWatch: StopWatch by lazy { StopWatchController(_formattedTime) }
 
     private var _formattedTime = MutableLiveData(INIT_TIME)
-    var formattedTime: LiveData<String>
+    val formattedTime: LiveData<String>
         get() = _formattedTime
-        set(value) { _formattedTime.value = value.value  }
 
-    private var _startStopButtonState = MutableLiveData(STATES.START)
-    var startStopButtonState: LiveData<STATES>
-        get() = _startStopButtonState
-        set(value) { _startStopButtonState.value = value.value  }
+    private var _state = MutableLiveData(STATES.START)
+    val state: LiveData<STATES>
+        get() = _state
 
-    fun startTimer() = stopWatch.startTimer(_startStopButtonState)
-    fun resetTimer() = stopWatch.resetTimer(_startStopButtonState)
-    fun stopTimer() = stopWatch.stopTimer(_startStopButtonState)
+
+    fun resetTimer() {
+        stopWatch.resetTimer(_state)
+    }
+
+    fun startPauseTimer(){
+        when (_state.value) {
+            STATES.START -> stopWatch.startTimer(_state)
+            STATES.RESUME -> stopWatch.startTimer(_state)
+            STATES.PAUSE -> stopWatch.pauseTimer(_state)
+            else -> {
+            }
+        }
+    }
+
 
 
 }

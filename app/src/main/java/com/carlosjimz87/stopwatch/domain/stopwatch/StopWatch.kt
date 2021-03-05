@@ -1,16 +1,10 @@
 package com.carlosjimz87.stopwatch.domain.stopwatch
 
 import androidx.lifecycle.MutableLiveData
+import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 
 interface StopWatch {
-
-    enum class STATES {
-        START,
-        PAUSE,
-        RESUME,
-    }
-
-    fun startTimer(data:MutableLiveData<STATES>)
-    fun stopTimer(data:MutableLiveData<STATES>)
-    fun resetTimer(data:MutableLiveData<STATES>)
+    fun startTimer(data:MutableLiveData<StopWatchViewModel.STATES>)
+    fun pauseTimer(data:MutableLiveData<StopWatchViewModel.STATES>)
+    fun resetTimer(data:MutableLiveData<StopWatchViewModel.STATES>)
 }
