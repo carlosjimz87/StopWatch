@@ -11,7 +11,6 @@ import com.carlosjimz87.stopwatch.utils.Constants.INTERVAL
 import com.carlosjimz87.stopwatch.utils.Extensions.formatTime
 import java.time.LocalDateTime
 
-@RequiresApi(Build.VERSION_CODES.O)
 class StopWatchController(
     private var formattedTime: MutableLiveData<String>,
     private var state: MutableLiveData<StopWatchViewModel.STATES>,
@@ -41,11 +40,13 @@ class StopWatchController(
     }
 
     private fun recordRecord(){
-        saveRecord.value = Record(
-            id = "",
-            datetime = LocalDateTime.now().toString(),
-            time = formattedTime.value!!
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            saveRecord.value = Record(
+                id = "",
+                datetime = LocalDateTime.now().toString(),
+                time = formattedTime.value!!
+            )
+        }
 
     }
     fun updateStopWatch() {
