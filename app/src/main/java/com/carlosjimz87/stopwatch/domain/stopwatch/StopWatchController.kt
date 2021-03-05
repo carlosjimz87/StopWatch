@@ -35,7 +35,7 @@ class StopWatchController(
     }
 
     fun updateStopWatch() {
-        val fTime = (milliseconds * INTERVAL).formatTime(false)
+        val fTime = (milliseconds * INTERVAL).formatTime()
         formattedTime.value = fTime
     }
 

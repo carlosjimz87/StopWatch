@@ -16,7 +16,6 @@ class StopWatchViewModel : ViewModel() {
         RESUME,
     }
 
-    val saveRecord = false
     private val stopWatch: StopWatch by lazy { StopWatchController(_formattedTime) }
 
     private var _formattedTime = MutableLiveData(INIT_TIME)
