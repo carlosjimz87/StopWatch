@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.StopwatchFragmentBinding
-import com.carlosjimz87.stopwatch.domain.stopwatch.StopWatch.*
 import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 
 class StopWatchFragment : Fragment() {
@@ -18,47 +17,67 @@ class StopWatchFragment : Fragment() {
         fun newInstance() = StopWatchFragment()
     }
 
-    private lateinit var viewModel: StopWatchViewModel
+    private lateinit var stopWatchViewModel: StopWatchViewModel
     private lateinit var binding: StopwatchFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.stopwatch_fragment, container, false
         )
+        // obtaining stopWatchViewModel from Provider
+        stopWatchViewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
 
-        viewModel = ViewModelProvider(this).get(StopWatchViewModel::class.java)
+        // Allows Data Binding to Observe LiveData
+        binding.lifecycleOwner = this
+        // Giving the binding access to the StopWatchViewModel
+        binding.viewModel = stopWatchViewModel
 
-        binding.stopBtn.setOnClickListener { viewModel.resetTimer() }
+        setupListeners()
+        setupObservers()
 
-        binding.startOrPauseBtn.setOnClickListener {
-            when (viewModel.startStopButtonState.value) {
-                STATES.RESUME ->  viewModel.startTimer()
-                STATES.START -> viewModel.startTimer()
-                STATES.PAUSE -> viewModel.stopTimer()
-                else -> {}
-            }
-        }
-
-        viewModel.startStopButtonState.observe(viewLifecycleOwner, { state ->
-
-            when (state) {
-                STATES.START -> changeStartOrPauseBtn(R.string.start,R.color.green)
-                STATES.PAUSE -> changeStartOrPauseBtn(R.string.pause,R.color.purple)
-                STATES.RESUME -> changeStartOrPauseBtn(R.string.resume,R.color.green)
-                else -> {}
-            }
-        })
-
-        viewModel.formattedTime.observe(viewLifecycleOwner, { time ->
-            binding.textViewStopWatch.text = time
-        })
         return binding.root
     }
 
-    private fun changeStartOrPauseBtn(text:Int,color:Int) {
+    private fun setupObservers() {
+
+        stopWatchViewModel.state.observe(viewLifecycleOwner, { state ->
+
+            when (state) {
+                StopWatchViewModel.STATES.START -> changeStartOrPauseBtn(R.string.start, R.color.green)
+                StopWatchViewModel.STATES.PAUSE -> changeStartOrPauseBtn(R.string.pause, R.color.purple)
+                StopWatchViewModel.STATES.RESUME -> changeStartOrPauseBtn(R.string.resume, R.color.green)
+                else -> {
+                }
+            }
+        })
+
+//        stopWatchModel.formattedTime.observe(viewLifecycleOwner, { time ->
+//            binding.textViewStopWatch.text = time
+//            if(stopWatchModel.saveRecord){
+//                (activity as MainActivity).recordsViewModel.addRecord(time)
+//            }
+//        })
+    }
+
+    private fun setupListeners() {
+
+//        binding.stopBtn.setOnClickListener { stopWatchModel.resetTimer() }
+
+//        binding.startOrPauseBtn.setOnClickListener {
+//            when (stopWatchModel.startStopButtonState.value) {
+//                STATES.RESUME -> stopWatchModel.startTimer()
+//                STATES.START -> stopWatchModel.startTimer()
+//                STATES.PAUSE -> stopWatchModel.stopTimer()
+//                else -> {
+//                }
+//            }
+//        }
+    }
+
+    private fun changeStartOrPauseBtn(text: Int, color: Int) {
         binding.startOrPauseBtn.setText(text)
         binding.startOrPauseBtn.setBackgroundColor(getColor(color))
     }

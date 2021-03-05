@@ -9,12 +9,12 @@ import com.carlosjimz87.stopwatch.ui.stopwatch.StopWatchFragment
 class MainActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideToolbar()
+
         showWatchFragment(savedInstanceState)
         showRecordsFragment(savedInstanceState)
 

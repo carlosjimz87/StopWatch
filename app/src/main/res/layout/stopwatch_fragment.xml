@@ -5,14 +5,14 @@
 
     <data>
         <variable
-            name="viewmodel"
+            name="viewModel"
             type="com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        tools:context=".ClockFragment">
+        tools:context=".MainActivity">
 
         <TextView
             android:id="@+id/textViewStopWatch"
@@ -21,7 +21,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:text="@string/init_stop_watch_value"
+            android:text="@{viewModel.formattedTime}"
             android:textSize="50sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +38,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/stop"
+            android:onClick="@{() -> viewModel.resetTimer()}"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/startOrPauseBtn"
@@ -56,6 +57,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/start"
+            android:onClick="@{() -> viewModel.startPauseTimer()}"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,4 +1,4 @@
-package com.carlosjimz87.stopwatch.ui.records
+package com.carlosjimz87.stopwatch.domain.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.RecordItemBinding
 
 import com.carlosjimz87.stopwatch.domain.models.Record
-import com.carlosjimz87.stopwatch.utils.Formatter
+import com.carlosjimz87.stopwatch.utils.Extensions
 
 
 class RecordsAdapter(private val records: List<Record>) :
@@ -29,7 +29,7 @@ class RecordsAdapter(private val records: List<Record>) :
 
     override fun onBindViewHolder(holder: RecordsHolder, position: Int) {
         val record: Record = records[position]
-        val formattedDate = Formatter.formatRecordDate(
+        val formattedDate = Extensions.formatRecordDate(
             context.resources.getString(R.string.dateAtText, record.datetime)
         )
         holder.binding.dateAt.text = formattedDate

@@ -3,6 +3,7 @@ package com.carlosjimz87.stopwatch.domain.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.carlosjimz87.stopwatch.data.repo.RecordsRepository
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.ManagedCoroutineScope
@@ -10,7 +11,7 @@ import kotlinx.coroutines.*
 
 
 class RecordsViewModel(
-    private val coroutineScope : ManagedCoroutineScope
+    val coroutineScope : ManagedCoroutineScope
 ) : ViewModel() {
     enum class RecordsApiStatus { LOADING, ERROR, DONE }
 
@@ -25,18 +26,28 @@ class RecordsViewModel(
         get() = _records
 
 
-    fun listRecords(source: RecordsRepository.SOURCE) = coroutineScope.launch{
+    fun updateRecords() = coroutineScope.launch{
         _status.value = RecordsApiStatus.LOADING
-        _records.value = recordsRepository.listRecords(source)
+
+        _records.value = recordsRepository.listRecords(RecordsRepository.SOURCE.DB)
+
         _status.value = RecordsApiStatus.DONE
     }
 
+
+    fun addRecord(time:String) = coroutineScope.launch{
+
+
+    }
+
     init {
-        listRecords(RecordsRepository.SOURCE.NETWORK)
+        updateRecords()
     }
 
     override fun onCleared() {
         super.onCleared()
         coroutineScope.cancel()
     }
+
 }
+
