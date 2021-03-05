@@ -18,13 +18,13 @@ object Extensions {
 
     }
 
-    fun formatRecordDate(input:String): String{
-        val lastChars = input.length - input.indexOf('.')
-        return input.dropLast(lastChars).replace('T',' ')
+    fun String.formatRecordDate(): String{
+        val lastChars = this.length - this.indexOf('.')
+        return this.dropLast(lastChars).replace('T',' ')
     }
 
 
-    fun Long.formatTime(longFormat:Boolean):String{
+    fun Long.formatTime():String{
 
         val format = "%02d:%02d:%02d.%03d"
         val hours = TimeUnit.MILLISECONDS.toHours(this)

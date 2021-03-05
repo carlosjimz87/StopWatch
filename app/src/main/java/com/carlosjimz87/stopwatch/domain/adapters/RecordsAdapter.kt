@@ -1,46 +1,79 @@
 package com.carlosjimz87.stopwatch.domain.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.carlosjimz87.stopwatch.R
 import com.carlosjimz87.stopwatch.databinding.RecordItemBinding
-
 import com.carlosjimz87.stopwatch.domain.models.Record
-import com.carlosjimz87.stopwatch.utils.Extensions
+import com.carlosjimz87.stopwatch.utils.Extensions.formatRecordDate
 
 
-class RecordsAdapter(private val records: List<Record>) :
-    RecyclerView.Adapter<RecordsAdapter.RecordsHolder>() {
-    lateinit var context: Context
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordsHolder {
-        val inflater = LayoutInflater.from(parent.context)
+class RecordsAdapter :
+    ListAdapter<Record, RecordsAdapter.RecordsViewHolder>(DiffCallback) {
 
-        val binding: RecordItemBinding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.record_item, parent, false
-        )
+    /**
+     * Allows the RecyclerView to determine which items have changed when the [List]
+     * has been updated.
+     */
+    companion object DiffCallback : DiffUtil.ItemCallback<Record>() {
+        override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
+            return oldItem === newItem
+        }
 
-        context = parent.context
-        return RecordsHolder(binding)
+        /**
+         * Create new [RecyclerView] item views (invoked by the layout manager)
+         */
+        override fun areContentsTheSame(oldItem: Record, newItem: Record): Boolean {
+            return oldItem.id == newItem.id
+        }
     }
 
-    override fun onBindViewHolder(holder: RecordsHolder, position: Int) {
-        val record: Record = records[position]
-        val formattedDate = Extensions.formatRecordDate(
-            context.resources.getString(R.string.dateAtText, record.datetime)
-        )
-        holder.binding.dateAt.text = formattedDate
-        holder.binding.time.text = record.time
+    class RecordsViewHolder(private val binding: RecordItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(record: Record) {
+            binding.record = record
+            binding.executePendingBindings()
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): RecordsViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = RecordItemBinding.inflate(layoutInflater, parent, false)
+                return RecordsViewHolder(
+                    binding
+                )
+            }
+        }
 
     }
 
-    override fun getItemCount(): Int = records.size
+    override fun onBindViewHolder(holder: RecordsViewHolder, position: Int) {
 
-    class RecordsHolder(val binding: RecordItemBinding) : RecyclerView.ViewHolder(
-        binding.root
-    )
+        val record = getItem(position)
+        val newRecord = Record(
+            id = record.id,
+            datetime = record.datetime.formatRecordDate(),
+            time = record.time,
+        )
+        holder.bind(newRecord)
+
+    }
+
+
+    /**
+     * Replaces the contents of a view (invoked by the layout manager)
+     */
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): RecordsViewHolder {
+
+        return RecordsViewHolder.from(parent)
+
+    }
+
 
 }

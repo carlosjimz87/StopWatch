@@ -13,9 +13,6 @@ import com.carlosjimz87.stopwatch.databinding.StopwatchFragmentBinding
 import com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel
 
 class StopWatchFragment : Fragment() {
-    companion object {
-        fun newInstance() = StopWatchFragment()
-    }
 
     private lateinit var stopWatchViewModel: StopWatchViewModel
     private lateinit var binding: StopwatchFragmentBinding
@@ -33,9 +30,8 @@ class StopWatchFragment : Fragment() {
         // Allows Data Binding to Observe LiveData
         binding.lifecycleOwner = this
         // Giving the binding access to the StopWatchViewModel
-        binding.viewModel = stopWatchViewModel
+        binding.stopwatchViewModel = stopWatchViewModel
 
-        setupListeners()
         setupObservers()
 
         return binding.root
@@ -54,27 +50,6 @@ class StopWatchFragment : Fragment() {
             }
         })
 
-//        stopWatchModel.formattedTime.observe(viewLifecycleOwner, { time ->
-//            binding.textViewStopWatch.text = time
-//            if(stopWatchModel.saveRecord){
-//                (activity as MainActivity).recordsViewModel.addRecord(time)
-//            }
-//        })
-    }
-
-    private fun setupListeners() {
-
-//        binding.stopBtn.setOnClickListener { stopWatchModel.resetTimer() }
-
-//        binding.startOrPauseBtn.setOnClickListener {
-//            when (stopWatchModel.startStopButtonState.value) {
-//                STATES.RESUME -> stopWatchModel.startTimer()
-//                STATES.START -> stopWatchModel.startTimer()
-//                STATES.PAUSE -> stopWatchModel.stopTimer()
-//                else -> {
-//                }
-//            }
-//        }
     }
 
     private fun changeStartOrPauseBtn(text: Int, color: Int) {
