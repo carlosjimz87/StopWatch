@@ -19,7 +19,7 @@ class NetworkApiTest {
 
     @Before
     fun setUp() {
-        RetrofitApi.BASE_URL = Constants.API_BASE_URL
+        RetrofitApi.BASE_URL = Constants.POSTMAN_API_BASE_URL
         api = RecordsApi.service
     }
 
