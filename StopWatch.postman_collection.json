@@ -1,0 +1,1101 @@
+{
+	"info": {
+		"_postman_id": "e6cd959f-e78e-4318-86ab-37e09a4c951f",
+		"name": "StopWatchv2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetLog",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jsonbin.io/b/604287d9f5d55402f080d30e",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jsonbin",
+						"io"
+					],
+					"path": [
+						"b",
+						"604287d9f5d55402f080d30e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetLog2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603ce4840866664b1085dffb",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603ce4840866664b1085dffb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:52:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-CmLSDdzTaeiJ2HL+VK/u07SrEkA\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "089618ef9900000e2a409cb000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=sJlPKIYGmJjBBRWIRoAw%2FniqciZGGFo%2BRBcKmPfQGJuBpdBZzE7UKy4nED0rkVNLXtHyIwN4k8tlUx1hP%2BA7Y%2Bnm1nS0MwW%2BrHkVgalG1g%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2a928d480e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"datetime\": \"2022-02-26T09:25:23.112+0000\",\n    \"time\": \"09:25:23.112\"\n}"
+				},
+				{
+					"name": "GetLog3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e972181087a6a8b94d92e",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e972181087a6a8b94d92e"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:52:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-CmLSDdzTaeiJ2HL+VK/u07SrEkA\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "089618ef9900000e2a409cb000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=sJlPKIYGmJjBBRWIRoAw%2FniqciZGGFo%2BRBcKmPfQGJuBpdBZzE7UKy4nED0rkVNLXtHyIwN4k8tlUx1hP%2BA7Y%2Bnm1nS0MwW%2BrHkVgalG1g%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2a928d480e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"datetime\": \"2023-02-26T09:25:23.112+0000\",\n    \"time\": \"09:25:23.112\"\n}"
+				},
+				{
+					"name": "GetLog4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e97450866664b10874da7",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e97450866664b10874da7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:52:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-CmLSDdzTaeiJ2HL+VK/u07SrEkA\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "089618ef9900000e2a409cb000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=sJlPKIYGmJjBBRWIRoAw%2FniqciZGGFo%2BRBcKmPfQGJuBpdBZzE7UKy4nED0rkVNLXtHyIwN4k8tlUx1hP%2BA7Y%2Bnm1nS0MwW%2BrHkVgalG1g%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2a928d480e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"datetime\": \"2024-02-26T09:25:23.112+0000\",\n    \"time\": \"09:25:23.112\"\n}"
+				},
+				{
+					"name": "GetLog1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e91da81087a6a8b94d67c",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e91da81087a6a8b94d67c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:52:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-CmLSDdzTaeiJ2HL+VK/u07SrEkA\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "089618ef9900000e2a409cb000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=sJlPKIYGmJjBBRWIRoAw%2FniqciZGGFo%2BRBcKmPfQGJuBpdBZzE7UKy4nED0rkVNLXtHyIwN4k8tlUx1hP%2BA7Y%2Bnm1nS0MwW%2BrHkVgalG1g%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2a928d480e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"datetime\": \"2021-02-26T09:25:23.112+0000\",\n    \"time\": \"09:25:23.112\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ListLogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jsonbin.io/e/collection/{{collectionId}}/all-bins",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jsonbin",
+						"io"
+					],
+					"path": [
+						"e",
+						"collection",
+						"{{collectionId}}",
+						"all-bins"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ListLogs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/e/collection/{{collectionId}}/all-bins",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"e",
+								"collection",
+								"{{collectionId}}",
+								"all-bins"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:51:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-TNjsiU4xQWRUTv240//Cu8eqxvo\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "0896182b7000000e2a1a00d000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=Jz33lbng8q7PZeZwcMv9U7RRb68DuvwayFj7n5JXOKEB6YXbJ9AW55PhOfaiMwEsSlHG8I4FRVnDiD4z8PmVNg1u7IwwTCuTrr%2BtXcCRFw%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2958b9060e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"records\": [\n        {\n            \"id\": \"603e91da81087a6a8b94d67c\"\n        },\n        {\n            \"id\": \"603ce4840866664b1085dffb\"\n        },\n        {\n            \"id\": \"603e972181087a6a8b94d92e\"\n        },\n        {\n            \"id\": \"603e97450866664b10874da7\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Log",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.jsonbin.io/b/604287d9f5d55402f080d30e",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jsonbin",
+						"io"
+					],
+					"path": [
+						"b",
+						"604287d9f5d55402f080d30e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteLog1",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e91da81087a6a8b94d67c",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e91da81087a6a8b94d67c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:54:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-7WC9qalrpHOr7Auo11IbNzrPhgg\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "08961ab93400000e2a408b6000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=D7BiEdl3YCDcdjr7mC9NX7tm3g9YTMjWJ%2FwvBBDBDrkiyxwcREoBGdz7wxbUByNqDdhifJuKryu7kIz9V%2Fqt9gg0HslRUYUdDxCGmoKwRQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2d6ebd4b0e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"id\": \"603e91da81087a6a8b94d67c\",\n    \"message\": \"Bin 603e91da81087a6a8b94d67c is deleted successfully. 0 versions removed.\"\n}"
+				},
+				{
+					"name": "DeleteLog2",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603ce4840866664b1085dffb",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603ce4840866664b1085dffb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:54:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-7WC9qalrpHOr7Auo11IbNzrPhgg\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "08961ab93400000e2a408b6000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=D7BiEdl3YCDcdjr7mC9NX7tm3g9YTMjWJ%2FwvBBDBDrkiyxwcREoBGdz7wxbUByNqDdhifJuKryu7kIz9V%2Fqt9gg0HslRUYUdDxCGmoKwRQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2d6ebd4b0e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"id\": \"603e91da81087a6a8b94d67c\",\n    \"message\": \"Bin 603e91da81087a6a8b94d67c is deleted successfully. 0 versions removed.\"\n}"
+				},
+				{
+					"name": "DeleteLog4",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e97450866664b10874da7",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e97450866664b10874da7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:54:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-7WC9qalrpHOr7Auo11IbNzrPhgg\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "08961ab93400000e2a408b6000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=D7BiEdl3YCDcdjr7mC9NX7tm3g9YTMjWJ%2FwvBBDBDrkiyxwcREoBGdz7wxbUByNqDdhifJuKryu7kIz9V%2Fqt9gg0HslRUYUdDxCGmoKwRQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2d6ebd4b0e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"id\": \"603e91da81087a6a8b94d67c\",\n    \"message\": \"Bin 603e91da81087a6a8b94d67c is deleted successfully. 0 versions removed.\"\n}"
+				},
+				{
+					"name": "DeleteLog3",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.jsonbin.io/b/603e972181087a6a8b94d92e",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b",
+								"603e972181087a6a8b94d92e"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:54:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-7WC9qalrpHOr7Auo11IbNzrPhgg\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "08961ab93400000e2a408b6000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=D7BiEdl3YCDcdjr7mC9NX7tm3g9YTMjWJ%2FwvBBDBDrkiyxwcREoBGdz7wxbUByNqDdhifJuKryu7kIz9V%2Fqt9gg0HslRUYUdDxCGmoKwRQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d2d6ebd4b0e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"id\": \"603e91da81087a6a8b94d67c\",\n    \"message\": \"Bin 603e91da81087a6a8b94d67c is deleted successfully. 0 versions removed.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "private",
+						"value": "false",
+						"type": "text"
+					},
+					{
+						"key": "collection-id",
+						"value": "{{collectionId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"603e91da81087a6a8b94d67c\",\n    \"datetime\": \"2021-03-02T09:25:23.112+0000\",\n    \"time\": \"11:58:31.455\"\n}"
+				},
+				"url": {
+					"raw": "https://api.jsonbin.io/b",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jsonbin",
+						"io"
+					],
+					"path": [
+						"b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Log",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "private",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "collection-id",
+								"value": "{{collectionId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"datetime\": \"2021-03-04T11:54:23.112+0000\",\n    \"time\": \"00:28:31.455\"\n}"
+						},
+						"url": {
+							"raw": "https://api.jsonbin.io/b",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jsonbin",
+								"io"
+							],
+							"path": [
+								"b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Mar 2021 19:51:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b3-rcCsuKNqJSXeV2iPOT37YZ4xoJw\""
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "089617fd7800000e2a338f2000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=P%2BIHFQk%2FpRxhXi0BjZCD1WeWsH%2BpIRvXRRIEIwDblgvYPQ623o%2BG8omdGnye5FFKNgOk5HtsKNTg5Ezmd0uIcAMLKXYMTULgsQ3qYAXq2g%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "629d290f2f7f0e2a-MXP"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"datetime\": \"2021-03-04T11:54:23.112+0000\",\n        \"time\": \"00:28:31.455\"\n    },\n    \"id\": \"603e97450866664b10874da7\",\n    \"collectionID\": \"603cbedb81087a6a8b93478b\",\n    \"private\": false\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "secret-key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "$2b$10$UNPcepb6oCqEQnZWxZGtUudrOvtK.GMAq90iTlnr0KtKc7fE54w4u",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collectionId",
+			"value": "603cbedb81087a6a8b93478b"
+		},
+		{
+			"key": "recordId",
+			"value": "603e91da81087a6a8b94d67c"
+		},
+		{
+			"key": "recordId2",
+			"value": "603e972181087a6a8b94d92e"
+		}
+	]
+}
