@@ -2,16 +2,15 @@ package com.carlosjimz87.stopwatch.domain.viewmodels
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.carlosjimz87.stopwatch.data.repo.RecordsRepository
 import com.carlosjimz87.stopwatch.domain.models.Record
+import com.carlosjimz87.stopwatch.utils.Extensions.sort
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 
 class RecordsViewModel(application: Application) : AndroidViewModel(application) {
@@ -33,16 +32,16 @@ class RecordsViewModel(application: Application) : AndroidViewModel(application)
         // updating the list of records from the SharedPrefs
         viewModelScope.launch {
             try {
-                _records.value = RecordsRepository.toDB().listRecords()
-
+                _records.value = RecordsRepository.toDB().listRecords().sort()
+                Log.d("STOPWATCH:", "Total Records: ${_records.value!!.size}")
             } catch (e: Exception) {
                 handleErrors(e)
+            } finally {
+                _status.value = RecordsApiStatus.DONE
             }
 
         }
 
-        Log.d("STOPWATCH:", "Total Records: ${_records.value!!.size}")
-        _status.value = RecordsApiStatus.DONE
     }
 
 
@@ -56,7 +55,7 @@ class RecordsViewModel(application: Application) : AndroidViewModel(application)
 
                 // saving record in SharedPreferences and updating the list
                 if (RecordsRepository.toDB().createRecord(record)) {
-                    _records.value = RecordsRepository.listRecords()
+//                    _records.value = RecordsRepository.listRecords()
                     Log.d("STOPWATCH:", "Record Saved: $record")
                 }
 
@@ -69,41 +68,51 @@ class RecordsViewModel(application: Application) : AndroidViewModel(application)
 
             } catch (e: Exception) {
                 handleErrors(e)
+            } finally {
+                _status.value = RecordsApiStatus.DONE
+                updateRecords()
             }
 
         }
 
-        _status.value = RecordsApiStatus.DONE
-
-        updateRecords()
     }
 
-    fun deleteRecord(recordId: String) {
+    fun deleteRecord(pos: Int) {
         _status.value = RecordsApiStatus.LOADING
+
+        val recordToDelete: Record? = _records.value?.get(pos)
 
         // deleting record in SharedPreferences and updating the list
         viewModelScope.launch {
             try {
-                if (RecordsRepository.toDB().deleteRecord(recordId))
-                    _records.value = RecordsRepository.listRecords()
+                if (recordToDelete != null) {
+                    if (RecordsRepository.toDB().deleteRecord(recordToDelete.id)) {
+//                        _records.value = RecordsRepository.listRecords()
+                        Log.d("STOPWATCH:", "Record Deleted (ID): ${recordToDelete.id}")
+
+
+                    }
+                }
             } catch (e: Exception) {
                 handleErrors(e)
+            } finally {
+
+                _status.value = RecordsApiStatus.DONE
             }
 
         }
 
-        Log.d("STOPWATCH:", "Record Deleted (ID): $recordId")
-        _status.value = RecordsApiStatus.DONE
 
     }
 
     private fun handleErrors(e: Exception) {
+        _status.value = RecordsApiStatus.DONE
         Log.e("STOPWATCH", "Error ${e.message}")
     }
 
     init {
         RecordsRepository.init(app)
-        updateRecords()
+//        updateRecords()
     }
 
     override fun onCleared() {

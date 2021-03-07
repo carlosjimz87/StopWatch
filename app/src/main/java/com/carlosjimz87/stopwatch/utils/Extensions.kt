@@ -34,4 +34,10 @@ object Extensions {
         return  (this.isEmpty()) ||
                 (this==INIT_TIME)
     }
+
+   fun List<Record>.sort(): List<Record> {
+       return this.sortedByDescending {
+           it.datetime
+       }
+   }
 }
