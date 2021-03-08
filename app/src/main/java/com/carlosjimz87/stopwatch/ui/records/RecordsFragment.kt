@@ -17,6 +17,14 @@ import com.carlosjimz87.stopwatch.databinding.RecordsFragmentBinding
 import com.carlosjimz87.stopwatch.domain.adapters.RecordsAdapter
 import com.carlosjimz87.stopwatch.domain.viewmodels.RecordsViewModel
 import com.carlosjimz87.stopwatch.utils.Extensions.isEmpty
+import androidx.recyclerview.widget.SimpleItemAnimator
+
+import androidx.recyclerview.widget.RecyclerView.ItemAnimator
+
+import android.R.attr.name
+
+
+
 
 class RecordsFragment: Fragment() {
 
@@ -25,7 +33,7 @@ class RecordsFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.records_fragment, container, false
@@ -40,16 +48,25 @@ class RecordsFragment: Fragment() {
 
         setupRecyclerView()
         attachSwipeGestureToRecyclerView()
+        setupStates()
         return binding.root
     }
+
 
     override fun onResume() {
         super.onResume()
         recordsViewModel.updateRecords()
     }
 
+    private fun setupStates(){
+        recordsViewModel.status.observe(viewLifecycleOwner, {
+            binding.recordsRecyclerView.scheduleLayoutAnimation()
+        })
+    }
+
     private fun setupRecyclerView() {
         binding.recordsRecyclerView.adapter = RecordsAdapter()
+        (binding.recordsRecyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
     }
 
     private fun attachSwipeGestureToRecyclerView(){

@@ -46,7 +46,7 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Create the records flow using a Repository pattern.
 - [X] Send the record values to the API and notify UI.
 - [X] Handle exceptions.
-- [ ] Delete records with Swipe (left and right) gesture.
+- [X] Delete records with Swipe (left and right) gesture.
 - [X] Validate correct functioning of all requirements in the app.
 
 * Some tests need to be improved.

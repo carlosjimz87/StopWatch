@@ -44,7 +44,7 @@ class NetworkApiTest {
 
         // Delete same 4 records
         records.forEach {
-            val result = api.deleteRecord(it.id)
+            val result = api.deleteRecord(it)
             Assert.assertEquals(true, result)
         }
 

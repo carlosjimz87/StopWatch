@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.carlosjimz87.stopwatch.databinding.RecordItemBinding
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.Extensions.formatRecordDate
+import com.carlosjimz87.stopwatch.utils.Extensions.unique
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Record>?) {
@@ -18,9 +19,9 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Record>?) {
 
 class RecordsAdapter :
     ListAdapter<Record, RecordsAdapter.RecordsViewHolder>(DiffCallback) {
-//    init {
-//        this.setHasStableIds(true)
-//    }
+    init {
+        this.setHasStableIds(true)
+    }
 
     /**
      * Allows the RecyclerView to determine which items have changed when the [List]
@@ -37,6 +38,10 @@ class RecordsAdapter :
         override fun areContentsTheSame(oldItem: Record, newItem: Record): Boolean {
             return oldItem.id == newItem.id
         }
+    }
+
+    override fun getItemId(position: Int): Long {
+        return this.currentList[position].unique()
     }
 
     class RecordsViewHolder(private val binding: RecordItemBinding) :

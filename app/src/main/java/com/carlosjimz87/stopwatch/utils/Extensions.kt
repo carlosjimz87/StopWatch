@@ -3,14 +3,9 @@ package com.carlosjimz87.stopwatch.utils
 import com.carlosjimz87.stopwatch.domain.models.Record
 import com.carlosjimz87.stopwatch.utils.Constants.INIT_TIME
 import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 object Extensions {
-
-    fun String.formatRecordDate(): String{
-        val lastChars = this.length - this.indexOf('.')
-        return this.dropLast(lastChars).replace('T',' ')
-    }
-
 
     fun Long.formatTime():String{
 
@@ -24,15 +19,27 @@ object Extensions {
         return String.format(format, hours, minutes, seconds, ms)
     }
 
+    fun String.formatRecordDate(): String{
+        val lastChars = this.length - this.indexOf('.')
+        return this.dropLast(lastChars).replace('T',' ')
+    }
+
+
+    fun String.isTimeEmpty():Boolean{
+        return  (this.isEmpty()) ||
+                (this==INIT_TIME)
+    }
+
+
     fun Record.isEmpty():Boolean{
         return  (this.id.isEmpty()) &&
                 (this.time.isEmpty()) &&
                 (this.datetime.isEmpty())
     }
 
-    fun String.isTimeEmpty():Boolean{
-        return  (this.isEmpty()) ||
-                (this==INIT_TIME)
+
+    fun Record.unique():Long{
+        return abs((this.datetime+this.time).hashCode().toLong())
     }
 
    fun List<Record>.sort(): List<Record> {
