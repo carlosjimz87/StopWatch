@@ -9,9 +9,11 @@
             type="com.carlosjimz87.stopwatch.domain.viewmodels.StopWatchViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layoutDescription="@xml/stopwatch_fragment_scene"
         tools:context=".MainActivity">
 
         <TextView
@@ -20,8 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:hint="@string/init_stop_watch_value"
             android:text="@{stopwatchViewModel.formattedTime}"
+            android:textColor="@color/white"
             android:textSize="50sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +39,9 @@
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/red"
             android:gravity="center"
+            android:onClick="@{() -> stopwatchViewModel.resetTimer()}"
             android:padding="8dp"
             android:text="@string/stop"
-            android:onClick="@{() -> stopwatchViewModel.resetTimer()}"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/startOrPauseBtn"
@@ -55,9 +58,9 @@
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/green"
             android:gravity="center"
+            android:onClick="@{() -> stopwatchViewModel.startPauseTimer()}"
             android:padding="8dp"
             android:text="@string/start"
-            android:onClick="@{() -> stopwatchViewModel.startPauseTimer()}"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,5 +68,5 @@
             app:layout_constraintStart_toEndOf="@+id/stopBtn"
             app:layout_constraintTop_toBottomOf="@+id/textViewStopWatch" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
