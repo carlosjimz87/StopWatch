@@ -18,9 +18,9 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Record>?) {
 
 class RecordsAdapter :
     ListAdapter<Record, RecordsAdapter.RecordsViewHolder>(DiffCallback) {
-    init {
-        this.setHasStableIds(true)
-    }
+//    init {
+//        this.setHasStableIds(true)
+//    }
 
     /**
      * Allows the RecyclerView to determine which items have changed when the [List]
@@ -68,7 +68,6 @@ class RecordsAdapter :
             time = record.time,
         )
         holder.bind(newRecord)
-
     }
 
 

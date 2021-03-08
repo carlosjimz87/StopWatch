@@ -1,10 +1,12 @@
 package com.carlosjimz87.stopwatch.data.repo
 
 import android.content.Context
-import com.carlosjimz87.stopwatch.data.db.Database
+import com.carlosjimz87.stopwatch.data.db.DatabaseApi
 import com.carlosjimz87.stopwatch.data.db.CacheApi
+import com.carlosjimz87.stopwatch.data.network.NetworkApi
 import com.carlosjimz87.stopwatch.data.network.RecordsApi
 import com.carlosjimz87.stopwatch.domain.models.Record
+import com.carlosjimz87.stopwatch.utils.Extensions.sort
 import java.lang.Exception
 
 
@@ -16,7 +18,7 @@ object RecordsRepository {
     private var source:SOURCE=SOURCE.DB
 
     fun init(context: Context) {
-        (CacheApi.service as Database).init(context)
+        (CacheApi.service as DatabaseApi).init(context)
     }
 
     fun toDB():RecordsRepository{
@@ -32,8 +34,8 @@ object RecordsRepository {
     @Throws(Exception::class)
     suspend fun listRecords():List<Record> {
         return when(source){
-            SOURCE.DB -> CacheApi.service.listRecords()
-            SOURCE.API -> RecordsApi.service.listRecords()
+            SOURCE.DB -> CacheApi.service.listRecords().sort()
+            SOURCE.API -> RecordsApi.service.listRecords().sort()
         }
 
     }
@@ -49,10 +51,10 @@ object RecordsRepository {
     }
 
     @Throws(Exception::class)
-    suspend fun deleteRecord(recordId:String):Boolean {
+    suspend fun deleteRecord(record:Record):Boolean {
         return when(source){
-            SOURCE.DB -> CacheApi.service.deleteRecord(recordId)
-            SOURCE.API -> RecordsApi.service.deleteRecord(recordId)
+            SOURCE.DB -> CacheApi.service.deleteRecord(record)
+            SOURCE.API -> RecordsApi.service.deleteRecord(record)
         }
 
     }

@@ -6,6 +6,6 @@ interface Api {
 
     suspend fun listRecords(): List<Record>
     suspend fun getRecord(recordId: String): Record
-    suspend fun deleteRecord(recordId: String): Boolean
+    suspend fun deleteRecord(record: Record): Boolean
     suspend fun createRecord(record: Record): Boolean
 }

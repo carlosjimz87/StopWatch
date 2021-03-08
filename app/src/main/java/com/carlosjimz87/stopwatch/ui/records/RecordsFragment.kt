@@ -75,9 +75,11 @@ class RecordsFragment: Fragment() {
             val pos = viewHolder.adapterPosition
 
             when(direction){
-                ItemTouchHelper.LEFT ->{
+                ItemTouchHelper.LEFT->{
                     recordsViewModel.deleteRecord(pos)
-
+                }
+                ItemTouchHelper.RIGHT->{
+                    recordsViewModel.deleteRecord(pos)
                 }
             }
         }

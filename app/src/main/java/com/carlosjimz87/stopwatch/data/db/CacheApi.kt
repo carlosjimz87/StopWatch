@@ -5,7 +5,7 @@ import com.carlosjimz87.stopwatch.data.base.Api
 import com.carlosjimz87.stopwatch.domain.models.Record
 
 
-class Database : Api {
+class DatabaseApi : Api {
     lateinit var context: Context
 
     fun init(context: Context) {
@@ -35,12 +35,12 @@ class Database : Api {
     }
 
     @Throws(Exception::class)
-    override suspend fun deleteRecord(recordId: String): Boolean {
+    override suspend fun deleteRecord(record: Record): Boolean {
         return try {
 
             val records = SharedPrefsManager.getRecords(context)
             val newRecords = records.filterNot {
-                it.id == recordId
+                it.datetime == record.datetime && it.time == record.time
             }
             if(newRecords.size != records.size){
                 SharedPrefsManager.setRecords(context, newRecords)
@@ -83,7 +83,7 @@ class Database : Api {
 object CacheApi {
 
     val service: Api by lazy {
-        Database()
+        DatabaseApi()
     }
 
 }

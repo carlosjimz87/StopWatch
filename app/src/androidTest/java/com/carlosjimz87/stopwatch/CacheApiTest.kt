@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry
 import com.carlosjimz87.stopwatch.data.base.Api
-import com.carlosjimz87.stopwatch.data.db.Database
+import com.carlosjimz87.stopwatch.data.db.DatabaseApi
 import com.carlosjimz87.stopwatch.data.db.CacheApi
 import com.carlosjimz87.stopwatch.utils.SDBR
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -27,7 +27,7 @@ class CacheApiTest {
         instrumentationContext = InstrumentationRegistry.getInstrumentation().context
 
         fakeDatabase = CacheApi.service
-        (fakeDatabase as Database).init(instrumentationContext)
+        (fakeDatabase as DatabaseApi).init(instrumentationContext)
 
     }
 
@@ -54,7 +54,7 @@ class CacheApiTest {
         // Delete 4 records
 
         SDBR.records.forEach {
-            val result = fakeDatabase.deleteRecord(it.id)
+            val result = fakeDatabase.deleteRecord(it)
             assertEquals(true, result)
         }
 
@@ -65,7 +65,7 @@ class CacheApiTest {
     }
 
         private fun clearSharedPrefs() = runBlocking {
-        (fakeDatabase as Database).clearRecords()
+        (fakeDatabase as DatabaseApi).clearRecords()
     }
 
 

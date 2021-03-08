@@ -36,9 +36,9 @@ class NetworkApi : Api {
     }
 
     @Throws(Exception::class)
-    override suspend fun deleteRecord(recordId: String): Boolean {
+    override suspend fun deleteRecord(record: Record): Boolean {
         val response = RetrofitApi.service.deleteRecord(
-            recordId,
+            record.id,
             RetrofitApi.headers()
         )
 
