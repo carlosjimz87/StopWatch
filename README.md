@@ -56,7 +56,7 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] CI with Github Actions.
 - [ ] Show errors and states in UI.
 - [ ] Multiple screen support.
-- [ ] Animations.
+- [X] Animations.
 - [ ] Apply dependency injection.
 - [ ] Improve the test harness for a good coverage.
 - [ ] Synchronize records between Cache with API.
