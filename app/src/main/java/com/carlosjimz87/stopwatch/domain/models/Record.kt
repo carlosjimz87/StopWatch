@@ -9,4 +9,18 @@ data class Record(
     val id: String,
     val datetime: String,
     val time: String
-) : Parcelable
+) : Parcelable{
+
+    override fun equals(other: Any?): Boolean {
+
+        if(javaClass!=other?.javaClass) return false
+
+        other as Record
+
+        if(id!= other.id) return false
+        if(datetime!= other.datetime) return false
+        if(time!= other.time) return false
+
+        return true
+    }
+}

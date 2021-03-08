@@ -29,7 +29,7 @@ class RecordsAdapter :
      */
     companion object DiffCallback : DiffUtil.ItemCallback<Record>() {
         override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
-            return oldItem === newItem
+            return oldItem.unique() == newItem.unique()
         }
 
         /**
