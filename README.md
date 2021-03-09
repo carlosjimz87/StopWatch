@@ -6,6 +6,11 @@
 <img src="assets/StopWatch_Wiremocks.jpg" width="100%">
 </p>
 
+<p align="center">
+<img src="assets/stopwatch_anim1.gif" width="33%">
+<img src="assets/stopwatch_anim2.gif" width="33%">
+</p>
+
 ## Features
 
 - The application should provide the ability to start the stopwatch which will start measuring time from 0 until stop or pause of the application. Measure the time in milliseconds.
@@ -40,8 +45,8 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Define the schema for API endpoints.
 - [X] Setting basic app structure and resources.
 - [X] Create the StopWatch logic using ViewModel and Bindings.
-- [X] Basic Unit Tests for business logic. *
-- [X] Basic Espresso Tests. *
+- [X] Basic Unit Tests for business logic.
+- [X] Basic Espresso Tests.
 - [X] Setup API client and operations.
 - [X] Make asynchronous requests to the API.
 - [X] Prepare API responses.
@@ -52,8 +57,6 @@ Unit testing will be made in `junit4` and instrumented testing in `Espresso`, th
 - [X] Handle exceptions.
 - [X] Delete records with Swipe gesture.
 - [X] Validate correct functioning of all requirements in the app.
-
-* Some tests need to be improved.
 
 ## *Extras*
 
