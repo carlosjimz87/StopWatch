@@ -31,6 +31,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        useIR = true
     }
     buildFeatures{
         dataBinding true
@@ -53,8 +54,6 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
     //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    //noinspection GradleDependency
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // navigation
     def nav_version = "2.3.3"
